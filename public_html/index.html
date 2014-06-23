@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <style>
+            body{
+                background-image: url('sail.JPG');
+                background-size: 100%;
+            }
+            a{
+                text-decoration: none;
+                color: #000;
+            }
+            
+            #main_container{
+                width: 900px;
+                height: auto;
+                margin: 50px auto;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            #blog_container{
+                height: 1000px;
+            }
+            
+            #top_nav{
+                width: 900px;
+                height: 60px;
+                margin: 200px auto;
+                background-color: #FFF;
+            }
+            #top_nav a{
+                font-family: Tahoma, Geneva, sans-serif;
+                font-size: 22px;
+                text-transform: uppercase;
+                -webkit-perspective: 1000px;
+                -moz-perspective: 1000px;
+                perspective: 1000px;
+            }
+            #top_nav a span{
+                background: #F6F3E9;
+                color: #1B1B1B;
+                padding: 5px 10px;
+                line-height: 50px;
+                float: left;
+
+                -webkit-transition: -webkit-transform 0.3s;
+                -moz-transition: -moz-transform 0.3s;
+                transition: transform 0.3s;
+
+                -webkit-transform-origin: 50% 0;
+                -moz-transform-origin: 50% 0;
+                transform-origin: 50% 0;
+
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+            }
+            #top_nav a span::before {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 5px 0;
+                text-align: center;
+                line-height: 50px;
+                background: #FF005B;
+                color: #FFF;
+                content: attr(data-hover);
+
+                -webkit-transition: background 0.3s;
+                -moz-transition: background 0.3s;
+                transition: background 0.3s;
+
+                -webkit-transform: rotateX(-90deg);
+                -moz-transform: rotateX(-90deg);
+                transform: rotateX(-90deg);
+
+                -webkit-transform-origin: 50% 0;
+                -moz-transform-origin: 50% 0;
+                transform-origin: 50% 0;
+            }
+            #top_nav a:hover span, #top_nav a:focus span {
+                -webkit-transform: rotateX(90deg) translateY(-22px);
+                -moz-transform: rotateX(90deg) translateY(-22px);
+                transform: rotateX(90deg) translateY(-22px);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_container">
+            <header>
+                <nav id="top_nav">
+                    <a href="#1" class="nav_elem">
+                        <span data-hover='Test1'>
+                            Test1
+                        </span>
+                    </a><a href="#2" class="nav_elem">
+                        <span data-hover='Test2'>
+                            Test2
+                        </span>
+                    </a><a href="#3" class="nav_elem">
+                        <span data-hover='Test3'>
+                            Test3
+                        </span>
+                    </a><a href="#4" class="nav_elem">
+                        <span data-hover='Test4'>
+                            Test4
+                        </span>
+                    </a>
+                </nav>
+            </header>
+            <section id="blog_container">
+                
+            </section>
+            <aside id="blog_sidebar">
+                
+            </aside>
+        </div>
+    </body>
+</html>

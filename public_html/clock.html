@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script>
+
+// For the time now
+            Date.prototype.timeNow = function() {
+                return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
+            };
+
+            var hour = 0, minute = 0, second = 0;
+
+            setInterval(function() {
+                var time = new Date().timeNow().split(':');
+
+                var hourNow = time[0],
+                        minuteNow = time[1],
+                        secondNow = time[2];
+
+                if (hour !== hourNow) {
+                    //console.log('hour set' + Number(hourNow).toString(2));
+                }
+
+                if (minute !== minuteNow) {
+                    //console.log('minute set' + Number(minuteNow).toString(2));
+                }
+
+                if (second !== secondNow) {
+                    console.log(new Date().timeNow());
+                    $('.second').removeClass('active');
+
+                    //set row 1
+                    var bits = Number(secondNow[0]).toString(2);
+                    var output = [];
+
+                    for (var i = 0, len = bits.length; i < len; i += 1) {
+                        output.push(+bits.charAt(i));
+                        
+                        if(+bits.charAt(i) === 1){
+                            var temp = '#second_row1_bit' + (i + 1);
+                            $(temp).addClass('active');
+                        }
+                    }
+                    console.log('row 1 ' + output);
+
+                    //set row 2
+                    bits = Number(secondNow[1]).toString(2);
+                    output = [];
+
+                    for (var i = 0, len = bits.length; i < len; i += 1) {
+                        output.push(+bits.charAt(i));
+                        
+                        if(+bits.charAt(i) === 1){
+                            var temp = '#second_row2_bit' + (i + 1);
+                            $(temp).addClass('active');
+                        }
+                    }
+                    console.log('row 2 ' + output);
+                }
+
+                hour = hourNow;
+                minute = minuteNow;
+                second = secondNow;
+            }, 100);
+            $(function() {
+
+            });
+        </script>
+        <style>
+            #clock{
+                width: 324px;
+                height: 216px;
+                margin: 200px auto;
+            }
+
+            .bit{
+                width: 50px;
+                height: 50px;
+                float: left;
+                margin: 2px;
+
+                background-color: #0000cc;
+            }
+            .bit.active{
+                background-color: #cc0000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock">
+            <!-- bit8 -->
+            <div id="hour_row1_bit4" class="bit hour"></div> <!-- static -->
+            <div id="hour_row2_bit4" class="bit hour"></div> <!-- static -->
+            <div id="minute_row1_bit4" class="bit minute"></div> <!-- static -->
+            <div id="minute_row2_bit4" class="bit minute"></div>
+            <div id="second_row1_bit4" class="bit second"></div> <!-- static -->
+            <div id="second_row2_bit4" class="bit second"></div>
+
+            <!-- bit4 -->
+            <div id="hour_row1_bit3" class="bit hour"></div> <!-- static -->
+            <div id="hour_row2_bit3" class="bit hour"></div> <!-- static -->
+            <div id="minute_row1_bit3" class="bit minute"></div> 
+            <div id="minute_row2_bit3" class="bit minute"></div>
+            <div id="second_row1_bit3" class="bit second"></div> 
+            <div id="second_row2_bit3" class="bit second"></div>
+
+            <!-- bit2 -->
+            <div id="hour_row1_bit2" class="bit hour"></div> 
+            <div id="hour_row2_bit2" class="bit hour"></div> 
+            <div id="minute_row1_bit2" class="bit minute"></div> 
+            <div id="minute_row2_bit2" class="bit minute"></div>
+            <div id="second_row1_bit2" class="bit second"></div> 
+            <div id="second_row2_bit2" class="bit second"></div>
+
+            <!-- bit1 -->
+            <div id="hour_row1_bit1" class="bit hour"></div> 
+            <div id="hour_row2_bit1" class="bit hour"></div> 
+            <div id="minute_row1_bit1" class="bit minute"></div> 
+            <div id="minute_row2_bit1" class="bit minute"></div>
+            <div id="second_row1_bit1" class="bit second"></div> 
+            <div id="second_row2_bit1" class="bit second"></div>
+        </div>
+    </body>
+</html>

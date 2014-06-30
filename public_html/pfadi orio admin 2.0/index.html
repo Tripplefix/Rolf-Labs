@@ -11,26 +11,53 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script>
-            
+
         </script>
         <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
             
+            #side_nav{
+                /*width: 150px;*/
+                height: 100%;
+
+                background-color: #F6F3E9;
+            }
+            #side_nav ul{     
+                margin: 0;
+                padding: 0;
+            }
+            #side_nav li{                
+                list-style-type: none;
+            }
+            #side_nav a{
+                display: block;
+                width: 75px;
+                height: 30px;
+                padding: 55px 10px 10px 10px;
+                text-decoration: none;
+                text-align: center;
+                background-color: #ff6600;
+                font-family: verdana;
+                font-size: 12px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <nav id="side_nav">
+            <a id="main_scout_lily" href="#">-Scout Lily-</a>
             <ul>
-                <li id="main_scout_lily">
-                    
+                <li>
+                    <a href="#">Neuer<br />Anschlag</a>
                 </li>
                 <li>
-                    <a href="#">Neuer Anschlag</a>
+                    <a href="#">Neuer<br />Beitrag</a>
                 </li>
                 <li>
-                    <a href="#">Neuer Beitrag</a>
-                </li>
-                <li>
-                    <a href="#">Neuer Evenz</a>
+                    <a href="#">Neuer<br />Evenz</a>
                 </li>
                 <li>
                     <a href="#">Mehr</a>

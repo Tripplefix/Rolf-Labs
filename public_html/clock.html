@@ -26,72 +26,69 @@ and open the template in the editor.
                         minuteNow = time[1],
                         secondNow = time[2];
 
-                if (hour !== hourNow) {
-                    //console.log('hour set' + Number(hourNow).toString(2));
-                }
-
-                if (minute !== minuteNow) {
-                    //console.log('minute set' + Number(minuteNow).toString(2));
-                }
-
-                if (second !== secondNow) {
-                    console.log(new Date().timeNow());
-                    $('.second').removeClass('active');
-
-                    //set row 1
-                    var bits = Number(secondNow[0]).toString(2);
-                    var output = [];
-
-                    for (var i = 0, len = bits.length; i < len; i += 1) {
-                        output.push(+bits.charAt(i));
-                        
-                        if(+bits.charAt(i) === 1){
-                            var temp = '#second_row1_bit' + (i + 1);
-                            $(temp).addClass('active');
-                        }
-                    }
-                    console.log('row 1 ' + output);
-
-                    //set row 2
-                    bits = Number(secondNow[1]).toString(2);
-                    output = [];
-
-                    for (var i = 0, len = bits.length; i < len; i += 1) {
-                        output.push(+bits.charAt(i));
-                        
-                        if(+bits.charAt(i) === 1){
-                            var temp = '#second_row2_bit' + (i + 1);
-                            $(temp).addClass('active');
-                        }
-                    }
-                    console.log('row 2 ' + output);
-                }
+                if (hour !== hourNow)
+                    setBits(hourNow, 'hour');
+                if (minute !== minuteNow)
+                    setBits(minuteNow, 'minute');
+                if (second !== secondNow)
+                    setBits(secondNow, 'second');
 
                 hour = hourNow;
                 minute = minuteNow;
                 second = secondNow;
-            }, 100);
-            $(function() {
+            }, 10);
 
-            });
+            function setBits(time, tt) {
+                $('.' + tt).removeClass('active');
+
+                //set row 1
+                var bits = Number(time[0]).toString(2);
+                var output = [];
+
+                var skip = 5 - bits.length;
+                for (var i = 0, len = bits.length; i < len; i += 1) {
+                    output.push(+bits.charAt(i));
+
+                    if (+bits.charAt(i) === 1) {
+                        var temp = '#' + tt + '_row1_bit' + (5 - (i + skip));
+                        $(temp).addClass('active');
+                    }
+                }
+
+                //set row 2
+                bits = Number(time[1]).toString(2);
+                output = [];
+
+                skip = 1 - bits.length;
+                for (var i = 0, len = bits.length; i <= len; i += 1) {
+                    output.push(+bits.charAt(i));
+
+                    if (+bits.charAt(i) === 1) {
+                        var temp = '#' + tt + '_row2_bit' + (1 - (i + skip));
+                        $(temp).addClass('active');
+                    }
+                }
+            }
         </script>
         <style>
             #clock{
-                width: 324px;
-                height: 216px;
+                width: 216px;
+                height: 144px;
                 margin: 200px auto;
             }
 
             .bit{
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
                 float: left;
-                margin: 2px;
-
-                background-color: #0000cc;
+                margin: 3px;
+                border-radius: 50%;
+                
+                box-shadow: 0 0 6px -1px;
+                background-color: #FFF;
             }
             .bit.active{
-                background-color: #cc0000;
+                background-color: #000;
             }
         </style>
     </head>

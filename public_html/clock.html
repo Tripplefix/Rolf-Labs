@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Dotacraft</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script>
 
-// For the time now
+            // For the time now
             Date.prototype.timeNow = function() {
                 return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
             };
+
+            $(document).ready(resizeBit);
+            $(window).resize(resizeBit);
 
             var hour = 0, minute = 0, second = 0;
 
@@ -69,62 +67,85 @@ and open the template in the editor.
                     }
                 }
             }
+
+            function resizeBit() {
+                var winHeight = window.innerHeight + 1;
+
+                $('.bit').css({
+                    height: winHeight / 4
+                });
+            }
         </script>
         <style>
-            #clock{
-                width: 432px;
-                height: 288px;
-                margin: 200px auto;
+            body{
+                margin: 0;
+                padding: 0;
+                overflow:hidden;
+            }
+
+            a:visited, a:link{
+                display: block;
+                text-decoration: none;
+                color: #000;
+                margin-bottom: 10px;
             }
 
             .bit{
-                width: 60px;
-                height: 60px;
+                width: 16.666%;                
                 float: left;
-                margin: 4px;
-                border-radius: 50%;
-                
-                box-shadow: 0 0 6px -1px;
                 background-color: #FFF;
-            }
+            }            
+
             .bit.active{
                 background-color: #000;
+            }
+
+            #madeby{
+                position: relative;
+                margin-left: 2%;
+                margin-top: 2%;
+                font-size: 21px;
+                font-family: verdana;
+                font-weight: bold;
             }
         </style>
     </head>
     <body>
-        <div id="clock">
-            <!-- bit8 -->
-            <div id="hour_row1_bit4" class="bit hour"></div> <!-- static -->
-            <div id="hour_row2_bit4" class="bit hour"></div> <!-- static -->
-            <div id="minute_row1_bit4" class="bit minute"></div> <!-- static -->
-            <div id="minute_row2_bit4" class="bit minute"></div>
-            <div id="second_row1_bit4" class="bit second"></div> <!-- static -->
-            <div id="second_row2_bit4" class="bit second"></div>
+        <!-- bit8 -->
+        <div id="hour_row1_bit4" class="bit hour">
+            <div id="madeby">
+                <a href="http://dotacraft.ch/">Dotacraft</a>
+                <a href="http://cloud.dotacraft.ch/">OwnCloud</a>
+            </div>
+        </div> <!-- static -->
+        <div id="hour_row2_bit4" class="bit hour"></div> <!-- static -->
+        <div id="minute_row1_bit4" class="bit minute"></div> <!-- static -->
+        <div id="minute_row2_bit4" class="bit minute"></div>
+        <div id="second_row1_bit4" class="bit second"></div> <!-- static -->
+        <div id="second_row2_bit4" class="bit second"></div>
 
-            <!-- bit4 -->
-            <div id="hour_row1_bit3" class="bit hour"></div> <!-- static -->
-            <div id="hour_row2_bit3" class="bit hour"></div> <!-- static -->
-            <div id="minute_row1_bit3" class="bit minute"></div> 
-            <div id="minute_row2_bit3" class="bit minute"></div>
-            <div id="second_row1_bit3" class="bit second"></div> 
-            <div id="second_row2_bit3" class="bit second"></div>
+        <!-- bit4 -->
+        <div id="hour_row1_bit3" class="bit hour"></div> <!-- static -->
+        <div id="hour_row2_bit3" class="bit hour"></div> <!-- static -->
+        <div id="minute_row1_bit3" class="bit minute"></div> 
+        <div id="minute_row2_bit3" class="bit minute"></div>
+        <div id="second_row1_bit3" class="bit second"></div> 
+        <div id="second_row2_bit3" class="bit second"></div>
 
-            <!-- bit2 -->
-            <div id="hour_row1_bit2" class="bit hour"></div> 
-            <div id="hour_row2_bit2" class="bit hour"></div> 
-            <div id="minute_row1_bit2" class="bit minute"></div> 
-            <div id="minute_row2_bit2" class="bit minute"></div>
-            <div id="second_row1_bit2" class="bit second"></div> 
-            <div id="second_row2_bit2" class="bit second"></div>
+        <!-- bit2 -->
+        <div id="hour_row1_bit2" class="bit hour"></div> 
+        <div id="hour_row2_bit2" class="bit hour"></div> 
+        <div id="minute_row1_bit2" class="bit minute"></div> 
+        <div id="minute_row2_bit2" class="bit minute"></div>
+        <div id="second_row1_bit2" class="bit second"></div> 
+        <div id="second_row2_bit2" class="bit second"></div>
 
-            <!-- bit1 -->
-            <div id="hour_row1_bit1" class="bit hour"></div> 
-            <div id="hour_row2_bit1" class="bit hour"></div> 
-            <div id="minute_row1_bit1" class="bit minute"></div> 
-            <div id="minute_row2_bit1" class="bit minute"></div>
-            <div id="second_row1_bit1" class="bit second"></div> 
-            <div id="second_row2_bit1" class="bit second"></div>
-        </div>
+        <!-- bit1 -->
+        <div id="hour_row1_bit1" class="bit hour"></div> 
+        <div id="hour_row2_bit1" class="bit hour"></div> 
+        <div id="minute_row1_bit1" class="bit minute"></div> 
+        <div id="minute_row2_bit1" class="bit minute"></div>
+        <div id="second_row1_bit1" class="bit second"></div> 
+        <div id="second_row2_bit1" class="bit second"></div>
     </body>
 </html>

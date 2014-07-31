@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script>
+            $(function(){
+                
+            });
+        </script>
+        <style>
+            #room{
+                position: absolute;
+                
+
+                left: 50%;
+                top: 400px;
+                
+                width: 1em;
+                height: 1em;
+                position: absolute;
+                box-sizing: border-box;
+                font-size: 120px;
+
+                transform: translate3d(-50%, -50%, 0px) 
+                    rotateX(5deg) 
+                    rotateY(5deg) 
+                    rotateZ(0deg);
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                -webkit-transform: translate3d(-50%, -50%, 0px) 
+                    rotateX(5deg) 
+                    rotateY(5deg) 
+                    rotateZ(0deg);
+                cursor: pointer;
+            }
+            .face{
+                position: absolute;
+                width: 1em;
+                height: 1em;
+                background-color: #000;
+                text-align: center;
+
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -o-backface-visibility: hidden;
+                backface-visibility: hidden;
+                padding: 0.05em;
+
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -o-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            
+            .faceFront{
+                transform: rotateX(0deg) translateZ(60px) rotateZ(0deg);
+                -webkit-transform: rotateX(0deg) translateZ(60px) rotateZ(0deg);
+                //opacity: 0;
+            }
+            .faceUp{
+                transform: rotateX(270deg) translateZ(-60px) rotateZ(0deg);
+                -webkit-transform: rotateX(270deg) translateZ(-60px) rotateZ(0deg);
+                background-color: #0000cc;
+            }
+            .faceRight{
+                transform: rotateY(-90deg) translateZ(-60px) rotateZ(0deg);
+                -webkit-transform: rotateY(-90deg) translateZ(-60px) rotateZ(0deg);
+                background-color: #00cc00;
+            }
+            .faceDown{
+                transform: rotateX(90deg) translateZ(-60px) rotateZ(90deg);
+                -webkit-transform: rotateX(90deg) translateZ(-60px) rotateZ(90deg);
+                background-color: #cc0000;
+            }
+            .faceLeft{
+                transform: rotateY(90deg) translateZ(-60px) rotateZ(-90deg);
+                -webkit-transform: rotateY(90deg) translateZ(-60px) rotateZ(-90deg);
+                background-color: #ffff00;
+            }
+            .faceBack{
+                transform: rotateY(0deg) translateZ(-60px) rotateZ(-90deg);
+                -webkit-transform: rotateY(0deg) translateZ(-60px) rotateZ(-90deg);
+                background-color: #F0F;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="room">
+            <!--<div class="face axisZ faceFront"></div> invisible -->
+            <div class="face axisY faceUp"></div>
+            <div class="face axisX faceRight"></div>
+            <div class="face axisY faceDown"></div>
+            <div class="face axisX faceLeft"></div>
+            <div class="face axisZ faceBack"></div>                
+        </div>
+    </body>
+</html>

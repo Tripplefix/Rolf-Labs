@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                
+                transform-style: preserve-3d;                
+                transform: rotateX(-5deg) rotateY(35deg) rotateZ(0deg);
+            }
+            #header{
+                height: 800px;
+                
+                background-color: #009999;
+            }
+            #image{
+                height: 400px;
+                
+                background-color: #cc6600;
+            }
+            #content{
+                height: 1000px;
+                
+                background-color: #669900;
+            }
+            
+            #parallax{
+                height: 800px;
+                position: relative;
+                transform: translateZ(-100px);
+                
+                background-color: #9900cc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="image">
+            <div id="parallax"></div>
+        </div>
+        <div id="content"></div>
+    </body>
+</html>
